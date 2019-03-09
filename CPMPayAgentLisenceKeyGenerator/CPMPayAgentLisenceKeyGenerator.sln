@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CPMPayAgentLisenceKeyGenerator", "CPMPayAgentLisenceKeyGenerator\CPMPayAgentLisenceKeyGenerator.csproj", "{369471D3-ED90-4B06-B664-C3D4A81A137B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CPMPayAgentHInfoRetriever", "CPMPayAgentHInfoRetriever\CPMPayAgentHInfoRetriever.csproj", "{5F43B2A9-50D2-4D3B-812C-7646DA77F33D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{369471D3-ED90-4B06-B664-C3D4A81A137B}.Debug|x86.ActiveCfg = Debug|x86
+		{369471D3-ED90-4B06-B664-C3D4A81A137B}.Debug|x86.Build.0 = Debug|x86
+		{369471D3-ED90-4B06-B664-C3D4A81A137B}.Release|x86.ActiveCfg = Release|x86
+		{369471D3-ED90-4B06-B664-C3D4A81A137B}.Release|x86.Build.0 = Release|x86
+		{5F43B2A9-50D2-4D3B-812C-7646DA77F33D}.Debug|x86.ActiveCfg = Debug|x86
+		{5F43B2A9-50D2-4D3B-812C-7646DA77F33D}.Debug|x86.Build.0 = Debug|x86
+		{5F43B2A9-50D2-4D3B-812C-7646DA77F33D}.Release|x86.ActiveCfg = Release|x86
+		{5F43B2A9-50D2-4D3B-812C-7646DA77F33D}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

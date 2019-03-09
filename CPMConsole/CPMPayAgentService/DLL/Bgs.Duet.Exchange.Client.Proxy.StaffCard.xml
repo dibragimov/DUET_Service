@@ -1,0 +1,207 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Bgs.Duet.Exchange.Client.Proxy.StaffCard</name>
+    </assembly>
+    <members>
+        <member name="T:Bgs.Duet.Exchange.Client.Proxy.StaffCard.CardInfo">
+            <summary>
+            Информация по МК
+            </summary>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.StaffCard.CardInfo.#ctor(Bgs.Duet.Exchange.StaffRegister.Card.Staff.IStaffCard)">
+            <summary>
+            Конструктор
+            </summary>
+            <exclude/>
+            <param name="staff_card"></param>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.StaffCard.CardInfo.BIN">
+            <summary>
+            Код Базового эмитента данной МК
+            </summary>
+            <remarks>
+            формат:
+            CCRRBBBB hex , где:
+            CC -	код платежной подсистемы;
+            RR - 	код Региона;
+            BBBB - 	код Базового эмитента 
+            </remarks>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.StaffCard.CardInfo.CardType">
+            <summary>
+            Логический тип МК
+            </summary>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.StaffCard.CardInfo.COSCardType">
+            <summary>
+            Физический тип МК
+            </summary>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.StaffCard.CardInfo.ExpiryDate">
+            <summary>
+            Дата окончания срока действия карты
+            </summary>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.StaffCard.CardInfo.Icon">
+            <summary>
+            Имя держателя карты
+            </summary>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.StaffCard.CardInfo.IssuerUSN">
+            <summary>
+            USN МК, эмитировавшей данную МК
+            </summary>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.StaffCard.CardInfo.UserSubType">
+            <summary>
+            Подтип исполнителя
+            </summary>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.StaffCard.CardInfo.UserType">
+            <summary>
+            Тип исполнителя
+            </summary>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.StaffCard.CardInfo.USN">
+            <summary>
+            USN МК Исполнителя
+            </summary>
+        </member>
+        <member name="T:Bgs.Duet.Exchange.Client.Proxy.StaffCard.ExtUsn">
+            <summary>
+            Класс для формирования внешнего номера МК
+            </summary>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.StaffCard.ExtUsn.#ctor(Bgs.Duet.Exchange.StaffRegister.Card.Staff.IStaffCard)">
+            <summary>
+            Конструктор
+            </summary>
+            <param name="staff_card"></param>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.StaffCard.ExtUsn.Parse(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="Usn"></param>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.StaffCard.ExtUsn.SetCountryCode(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="CountryCode"></param>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.StaffCard.ExtUsn.AsGOST">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.StaffCard.ExtUsn.AsHex">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.StaffCard.ExtUsn.AsISO">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.StaffCard.ExtUsn.AsNumber">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.StaffCard.ExtUsn.LogicalType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.StaffCard.ExtUsn.Region">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Bgs.Duet.Exchange.Client.Proxy.StaffCard.Card">
+            <summary>
+            Враппер на объект "МК Исполнителя"
+            </summary>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.StaffCard.Card.#ctor">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.StaffCard.Card.Open(System.Int32)">
+            <summary>
+            Открытие (подача питания) на МК
+            </summary>
+            <param name="channel">номер канала ридела</param>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.StaffCard.Card.Close">
+            <summary>
+            Закрытие МК, освобождение канала ридера
+            </summary>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.StaffCard.Card.GetCardInfo">
+            <summary>
+            Получение информации по МК
+            </summary>
+            <returns>информация по МК</returns>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.StaffCard.Card.PresentPassword(System.String)">
+            <summary>
+            Презентация (проверка) пароля МК исполнителя
+            </summary>
+            <param name="password">пароль МК</param>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.StaffCard.Card.ChangePassword(System.String,System.String)">
+            <summary>
+            Смена пароля МК исполнителя
+            </summary>
+            <param name="oldPassword">старый пароль</param>
+            <param name="newPassword">новый пароль</param>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.StaffCard.Card.LockPassword(System.Int32)">
+            <summary>
+            Блокировка пароля МК исполнителя
+            </summary>
+            <param name="tryNum">количество попыток</param>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.StaffCard.Card.StaffCard">
+            <summary>
+            МК Исполнителя
+            </summary>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.StaffCard.Card.BaseCard">
+            <summary>
+            Объект BaseCard
+            </summary>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.StaffCard.Card.ExpiryDate">
+            <summary>
+            Дата окончания срока действия МК
+            </summary>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.StaffCard.Card.Usn">
+            <summary>
+            Объект внешний номер МК Исполнителя
+            </summary>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.StaffCard.Card.UserType">
+            <summary>
+            Тип исполнителя
+            </summary>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.StaffCard.Card.UserSubType">
+            <summary>
+            Подтип исполнителя
+            </summary>
+        </member>
+        <member name="T:Bgs.Duet.Exchange.Client.Proxy.StaffCard.ThreadOpenSession">
+            <summary>
+            
+            </summary>
+            <exclude/>
+        </member>
+    </members>
+</doc>

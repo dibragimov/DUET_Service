@@ -1,0 +1,1699 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Bgs.Duet.Exchange.Client.Proxy</name>
+    </assembly>
+    <members>
+        <member name="T:Bgs.Duet.Exchange.Client.Proxy.Operation">
+            <summary>
+            Абстрактный класс, инкапулирующий общие свойства операций.
+            Экземпляр этого класса не может быть создан.
+            </summary>
+        </member>
+        <member name="F:Bgs.Duet.Exchange.Client.Proxy.Operation.common">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.Operation.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.Operation._handleException(System.Exception)">
+            <summary>
+            Для логирования
+            </summary>
+            <param name="ex"></param>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.Operation.MainSession">
+            <summary>
+            Возвращает или устанавливает объект, содержащий сессию
+            с Сервером приложений Подсистемы обмена.
+            </summary>
+        </member>
+        <member name="T:Bgs.Duet.Exchange.Client.Proxy.AccountOperation">
+            <summary>
+            Предоставляет методы для выполнения операций <b>зачисления/списания</b> на/с счет(а) клиента, а также <b>подтверждения/отмены</b> операций подготовленных в DUET (на АРМ КК)
+            </summary>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.AccountOperation.#ctor">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.AccountOperation.PrepareOperation(Bgs.Duet.Exchange.Client.Proxy.ClientAccountOperation)">
+            <summary>
+            Выполняет подготовку (<b>первая стадия</b>)
+            операции зачисления/списания на/с счет(а) клиента
+            </summary>
+            <param name="operationData">Параметры операции</param>
+            <returns>Результат выполнения операции</returns>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.AccountOperation.ConfirmOperation(Bgs.Duet.Exchange.Client.Proxy.OperationInfo)">
+            <summary>
+            Выполняет подтверждение (<b>вторая стадия</b>)	операции на зачисление/списание на/с счет(а) клиента,<br/>
+            а также <b>подтверждение</b> подготовленной операции в DUET
+            </summary>
+            <param name="operationInfo">Параметры операции</param>
+            <returns>Результат выполнения операции</returns>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.AccountOperation.CancelOperation(Bgs.Duet.Exchange.Client.Proxy.OperationInfo)">
+            <summary>
+            Выполняет отмену (<b>вторая стадия</b>)
+            операции на зачисление/списание на/с счет(а) клиента,<br/>
+            а также <b>отмену</b> подготовленной операции в DUET
+            </summary>
+            <param name="operationInfo">Параметры операции</param>
+            <returns>Результат выполнения операции</returns>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.AccountOperation.PrepareODOperation(Bgs.Duet.Exchange.Client.Proxy.OperationInfo)">
+            <summary>
+            Подготовка операции в ОД
+            </summary>
+            <param name="operationInfo">Параметры операции (pack_id, row_id)</param>
+            <returns>Результат выполнения операции</returns>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.AccountOperation.ApproveODOperation(Bgs.Duet.Exchange.Client.Proxy.OperationInfo)">
+            <summary>
+            Подтверждение операции в ОД
+            </summary>
+            <param name="operationInfo">параметры операции (pack_id, row_id)</param>
+            <returns>Результат выполнения операции</returns>
+        </member>
+        <member name="T:Bgs.Duet.Exchange.Client.Proxy.ClientCreate">
+            <summary>
+            Предоставляет методы для выполнения регистрации клиента
+            </summary>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.ClientCreate.#ctor">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.ClientCreate.PrepareOperation(Bgs.Duet.Exchange.Client.Proxy.ClientData)">
+            <summary>
+            Выполняет подготовку (<b>первая стадия</b>)
+            операции регистрации клиента
+            </summary>
+            <param name="operationData">Параметры операции</param>
+            <returns>Результат выполнения операции</returns>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.ClientCreate.ConfirmOperation(Bgs.Duet.Exchange.Client.Proxy.OperationInfo)">
+            <summary>
+            Выполняет подтверждение (<b>вторая стадия</b>)
+            операции регистрации клиента
+            </summary>
+            <param name="operationInfo">Параметры операции</param>
+            <returns>Результат выполнения операции</returns>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.ClientCreate.CancelOperation(Bgs.Duet.Exchange.Client.Proxy.OperationInfo)">
+            <summary>
+            Выполняет отмену (<b>вторая стадия</b>)
+            операции регистрации клиента
+            </summary>
+            <param name="operationInfo">Параметры операции</param>
+            <returns>Результат выполнения операции</returns>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.ClientCreate.PrepareCreateOperation(Bgs.Duet.Exchange.ApplicationServer.Common.Classify.CliDataCreateExt)">
+            <summary>
+            Выполняет подготовку (<b>первая стадия</b>)
+            операции регистрации клиента (4.7.7)
+            </summary>
+            <param name="operationData">Параметры операции</param>
+            <returns>Результат выполнения операции</returns>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.ClientCreate.PrepareUpdateOperation(Bgs.Duet.Exchange.ApplicationServer.Common.Classify.CliDataUpdateExt)">
+            <summary>
+            Выполняет подготовку (<b>первая стадия</b>)
+            операции изменения данных клиента (4.7.7)
+            </summary>
+            <param name="operationData">Параметры операции</param>
+            <returns>Результат выполнения операции</returns>
+        </member>
+        <member name="T:Bgs.Duet.Exchange.Client.Proxy.AccountOpen">
+            <summary>
+            Предоставляет методы для выполнения операции по 
+            открытию счета клиента
+            </summary>
+            <remarks>Операция выполняется в 2 этапа: <br/>
+            первый этап: <b>Prepare</b> (подготовка);<br/>
+            второй этап: <b>Confirm</b> (подтверждение) либо <b>Cancel</b> (отмена).</remarks>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.AccountOpen.#ctor">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.AccountOpen.PrepareOperation(Bgs.Duet.Exchange.Client.Proxy.ClientAccountOpen)">
+            <summary>
+            Выполняет подготовку (<b>первая стадия</b>)
+            операции открытия счета клиента
+            </summary>
+            <param name="operationData">Параметры операции</param>
+            <returns>Результат выполнения операции</returns>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.AccountOpen.ConfirmOperation(Bgs.Duet.Exchange.Client.Proxy.OperationInfo)">
+            <summary>
+            Выполняет подтверждение (<b>вторая стадия</b>)
+            операции открытия счета клиента
+            </summary>
+            <param name="operationInfo">Параметры операции</param>
+            <returns>Результат выполнения операции</returns>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.AccountOpen.CancelOperation(Bgs.Duet.Exchange.Client.Proxy.OperationInfo)">
+            <summary>
+            Выполняет отмену (<b>вторая стадия</b>)
+            операции открытия счета клиента
+            </summary>
+            <param name="operationData">Параметры операции</param>
+            <returns>Результат выполнения операции</returns>
+        </member>
+        <member name="T:Bgs.Duet.Exchange.Client.Proxy.ManageOD">
+            <summary>
+            Предоставляет методы для управлением глобальным ОД и ОД участников
+            </summary>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.ManageOD.#ctor">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.ManageOD.ManageGlobalOD(Bgs.Duet.Exchange.Client.Proxy.CliGlobalODOperation)">
+            <summary>
+            Выполняет открытие/закрытие глобального ОД
+            </summary>
+            <param name="operationData">Параметры операции</param>
+            <returns>Результат выполнения операции</returns>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.ManageOD.ManageMembershipOD(Bgs.Duet.Exchange.Client.Proxy.CliMembershipODOperation)">
+            <summary>
+            Выполняет команду остановки/возобновления ОД участников
+            </summary>
+            <param name="operationData">Параметры операции</param>
+            <returns>Результат выполнения операции</returns>
+        </member>
+        <member name="T:Bgs.Duet.Exchange.Client.Proxy.ClientAccountBlock">
+            <summary>
+            Предоставляет методы для блокирования счета клиента
+            </summary>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.ClientAccountBlock.#ctor">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.ClientAccountBlock.PrepareOperation(Bgs.Duet.Exchange.Client.Proxy.ClientAccountBlockData)">
+            <summary>
+            Выполняет подготовку (<b>первая стадия</b>)
+            операции временной блокировки счета клиента
+            </summary>
+            <param name="operationData">Параметры операции</param>
+            <returns>Результат выполнения операции</returns>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.ClientAccountBlock.ConfirmOperation(Bgs.Duet.Exchange.Client.Proxy.OperationInfo)">
+            <summary>
+            Выполняет подтверждение (<b>вторая стадия</b>)
+            операции временной блокировки счета клиента
+            </summary>
+            <param name="operationInfo">Параметры операции</param>
+            <returns>Результат выполнения операции</returns>
+        </member>
+        <member name="T:Bgs.Duet.Exchange.Client.Proxy.CardApplicationBlock">
+            <summary>
+            Предоставляет методы для блокирования счета приложения МК
+            </summary>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.CardApplicationBlock.#ctor">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.CardApplicationBlock.PrepareOperation(Bgs.Duet.Exchange.Client.Proxy.CardApplicationBlockData)">
+            <summary>
+            Выполняет подготовку (<b>первая стадия</b>)
+            операции блокировки счета приложения МК
+            </summary>
+            <param name="operationData">Параметры операции</param>
+            <returns>Результат выполнения операции</returns>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.CardApplicationBlock.ConfirmOperation(Bgs.Duet.Exchange.Client.Proxy.OperationInfo)">
+            <summary>
+            Выполняет подтверждение (<b>вторая стадия</b>)
+            операции блокировки счета приложения МК
+            </summary>
+            <param name="operationInfo">Параметры операции</param>
+            <returns>Результат выполнения операции</returns>
+        </member>
+        <member name="T:Bgs.Duet.Exchange.Client.Proxy.ClientAccountCloseZero">
+            <summary>
+            Предоставляет методы для закрытия счета клиента при нулевом остатке средств на счете
+            </summary>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.ClientAccountCloseZero.#ctor">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.ClientAccountCloseZero.ExecutePreclose(Bgs.Duet.Exchange.Client.Proxy.ClientAccountCloseData)">
+            <summary>
+            Выполняет предварительное закрытие счета клиента
+            </summary>
+            <param name="operationData">Параметры операции</param>
+            <returns>Результат выполнения операции</returns>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.ClientAccountCloseZero.ExecuteCloseZero(Bgs.Duet.Exchange.Client.Proxy.ClientAccountCloseData)">
+            <summary>
+            Выполняет закрытие счета клиента c нулевым остатком
+            </summary>
+            <param name="operationData">Параметры операции</param>
+            <returns>Результат выполнения операции</returns>
+        </member>
+        <member name="T:Bgs.Duet.Exchange.Client.Proxy.PackOperation">
+            <summary>
+            Предоставляет методы для выполнения операций по управлению входным буфером DUET
+            </summary>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.PackOperation.PackCreate(Bgs.Duet.Exchange.ApplicationServer.Common.Classify.PackCreateInfo)">
+            <summary>
+            Создает заголовок пакета и возвращает идентификатор этого пакета
+            </summary>
+            <param name="packInfo">содержит информацию о типе пакета, количестве записей в пакете</param>
+            <returns></returns>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.PackOperation.PackPrepare(Bgs.Duet.Exchange.ApplicationServer.Common.Classify.PackPrepareInfo)">
+            <summary>
+            Записывает набор записей в заданный пакет в буфере PACK БД DUET
+            </summary>
+            <param name="packInfo">Содержит массив объектов ExchangeOperationInfo, соответствующих типу пакета PackType</param>
+            <returns>массив результатов помещения записей в PACK</returns>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.PackOperation.PackConfirm(Bgs.Duet.Exchange.ApplicationServer.Common.Classify.ExchangeOperationInfo)">
+            <summary>
+            Выполняет регистрацию заданного пакета (переводит в состояние «Сформирован») и ставит пакет в очередь на обработку
+            </summary>
+            <param name="packInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.PackOperation.PackExecute(Bgs.Duet.Exchange.ApplicationServer.Common.Classify.ExchangeOperationInfo)">
+            <summary>
+            Запускает синхронную обработку пакета или ставит пакет в очередь на обработку
+            </summary>
+            <param name="packInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.PackOperation.PackDelete(Bgs.Duet.Exchange.ApplicationServer.Common.Classify.ExchangeOperationInfo)">
+            <summary>
+            Удаление необработанного пакета
+            </summary>
+            <param name="packInfo">содержит идентификатор удаляемого пакета pack_id</param>
+            <returns></returns>
+        </member>
+        <member name="T:Bgs.Duet.Exchange.Client.Proxy.ContragentOperation">
+            <summary>
+            Предоставляет методы для выполнения операций по управлению входным буфером DUET
+            </summary>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.ContragentOperation.PrepareOperation(Bgs.Duet.Exchange.ApplicationServer.Common.Classify.ContragentCreateInfo)">
+            <summary>
+            Подготовка
+            </summary>
+            <param name="cntrgInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.ContragentOperation.ConfirmOperation(Bgs.Duet.Exchange.ApplicationServer.Common.Classify.ContragentConfirmInfo)">
+            <summary>
+            Выполнение
+            </summary>
+            <param name="cntrgInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Bgs.Duet.Exchange.Client.Proxy.RegistrationResultItem">
+            <summary>
+            Представляет результат регистрации по служебной МК
+            </summary>
+        </member>
+        <member name="F:Bgs.Duet.Exchange.Client.Proxy.RegistrationResultItem.Unknown">
+            <summary>
+            Результат неизвестен
+            </summary>
+        </member>
+        <member name="F:Bgs.Duet.Exchange.Client.Proxy.RegistrationResultItem.RegistrationSuccefully">
+            <summary>
+            Регистрация успешно проведена
+            </summary>
+        </member>
+        <member name="F:Bgs.Duet.Exchange.Client.Proxy.RegistrationResultItem.RegistrationFailed">
+            <summary>
+            Регистрация не проведена
+            </summary>
+        </member>
+        <member name="T:Bgs.Duet.Exchange.Client.Proxy.Item">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.Item.#ctor">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.Item.#ctor(System.String,System.Object)">
+            <summary>
+            Конструктор
+            </summary>
+            <param name="key">Ключ</param>
+            <param name="val">Значение</param>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.Item.Key">
+            <summary>
+            Ключ
+            </summary>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.Item.Val">
+            <summary>
+            Значение
+            </summary>
+        </member>
+        <member name="T:Bgs.Duet.Exchange.Client.Proxy.client_ext_data">
+            <summary>
+            Расширенные данные (клиента например)
+            </summary>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.client_ext_data.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.client_ext_data.Add(Bgs.Duet.Exchange.Client.Proxy.Item)">
+            <summary>
+            
+            </summary>
+            <param name="entity"></param>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.client_ext_data.Item(System.String)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Bgs.Duet.Exchange.Client.Proxy.OperationInfo">
+            <summary>
+            Класс, реализующий свойства объекта, описывающего общие данные запроса
+            на выполнение операции через подсистему обмена DUET Exchange
+            </summary>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.OperationInfo.#ctor">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.OperationInfo.SerializeOperationInfo(System.String)">
+            <summary>
+            Производит запись информации об исполняемой операции
+            в журнал операций текущего соединения
+            </summary>
+            <param name="fileName">Короткое (без указания пути) имя файла для создания
+            и ведения журнала операций</param>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.OperationInfo.ToString">
+            <summary>
+            Возвращает строку, представляющую данный объект
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.OperationInfo.CommandName">
+            <summary>
+            Возвращает или устанавливает тип операции DUET Exchange
+            </summary>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.OperationInfo.CommandSubName">
+            <summary>
+            Возвращает или устанавливает тип действия в рамках операции
+            подсистемы обмена DUET Exchange
+            </summary>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.OperationInfo.ExtSubsystemId">
+            <summary>
+            Возвращает или устанавливает уникальный идентификатор
+            внешней подсистемы
+            </summary>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.OperationInfo.ExtUniqueId">
+            <summary>
+            Возвращает или устанавливает уникальный идентификатор
+            документа во внешней подсистеме
+            </summary>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.OperationInfo.ExtOperationInfo">
+            <summary>
+            Возвращает или устанавливает дополнительную информацию об операции
+            </summary>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.OperationInfo.PackId">
+            <summary>
+            Возвращает или устанавливает идентификатор пакета подготовленного 
+            документа в буфере PACK БД DUET
+            </summary>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.OperationInfo.RowId">
+            <summary>
+            Возвращает или устанавливает номер строки в пакете подготовленного 
+            документа в буфере PACK БД DUET
+            </summary>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.OperationInfo.PackQueueInfo">
+            <summary>
+            Параметры по добавлению команды в очередь (для формирования отложенных операций)
+            </summary>
+            <remarks>Заполняется при необходимости поставить операцию в очередь и выполнить (Confirm) операцию автоматически в опеределенное время (отложенная операция) <br/>
+            При ручном подтверждении (Confirm) операций, необходимо оставлять значение свойства null (default)
+            </remarks>
+            <value>null</value>
+        </member>
+        <member name="T:Bgs.Duet.Exchange.Client.Proxy.ClientData">
+            <summary>
+            Класс, реализующий свойства объекта, описывающего
+            параметры вызова операции регистрации нового клиента
+            </summary>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.ClientData.#ctor">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.ClientData.SerializeOperationInfo(System.String)">
+            <summary>
+            Производит запись информации об исполняемой операции
+            в журнал операций текущего соединения
+            </summary>
+            <param name="fileName">Короткое (без указания пути) имя файла для создания
+            и ведения журнала операций</param>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.ClientData.ToString">
+            <summary>
+            Возвращает строку, представляющую данный объект
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.ClientData.client_index_id">
+            <summary>
+            Возвращает или устанавливает дополнительный идентификатор клиента
+            </summary>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.ClientData.client_class">
+            <summary>
+            Возвращает или устанавливает класс клиента
+            </summary>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.ClientData.client_status">
+            <summary>
+            Возвращает или устанавливает cтатус регистрационных 
+            данных клиента
+            </summary>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.ClientData.contract_id">
+            <summary>
+            Возвращает или устанавливает номер договора с клиентом
+            </summary>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.ClientData.contract_date">
+            <summary>
+            Возвращает или устанавливает дату заключения договора
+            </summary>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.ClientData.client_name">
+            <summary>
+            Возвращает или устанавливает ФИО клиента или 
+            наименование организации
+            </summary>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.ClientData.personal_data">
+            <summary>
+            Возвращает или устанавливает паспортные данные или 
+            банковские реквизиты клиента
+            </summary>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.ClientData.birth_date">
+            <summary>
+            Возвращает или устанавливает дату рождения или
+            дату регистрации юр. лица
+            </summary>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.ClientData.address_1">
+            <summary>
+            Возвращает или устанавливает адрес регистрации или
+            юридический адрес юр. лица
+            </summary>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.ClientData.address_2">
+            <summary>
+            Возвращает или устанавливает дополнительный адрес
+            </summary>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.ClientData.phone_1">
+            <summary>
+            Возвращает или устанавливает домашний телефон или
+            телефон руководителя предприятия
+            </summary>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.ClientData.phone_2">
+            <summary>
+            Возвращает или устанавливает рабочий телефон или телефон бухгалтера
+            </summary>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.ClientData.client_tax_id1">
+            <summary>
+            Возвращает или устанавливает регистрационный номер клиента
+            в налоговых органах
+            </summary>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.ClientData.client_tax_id2">
+            <summary>
+            Возвращает или устанавливает дополнительный регистрационный 
+            номер клиента
+            </summary>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.ClientData.client_identity_id">
+            <summary>
+            Возвращает или устанавливает идентификатор признака
+            уникальности регистрационных данных клиента
+            </summary>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.ClientData.short_name">
+            <summary>
+            Возвращает или устанавливает ФИО клиента или 
+            наименование организации для записи на МК
+            </summary>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.ClientData.cli_region">
+            <summary>
+            Возвращает или устанавливает регион клиента
+            </summary>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.ClientData.cli_bank_number">
+            <summary>
+            Возвращает или устанавливает номер банка-участника клиента
+            </summary>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.ClientData.cli_participant">
+            <summary>
+            Возвращает или устанавливает номер операционного пункта клиента
+            </summary>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.ClientData.client_data_ext">
+            <summary>
+            Расширенные данные клиента
+            </summary>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.ClientData.doc_type">
+            <summary>
+            Вид удостоверяющего документа
+            </summary>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.ClientData.doc_series">
+            <summary>
+            Серия
+            </summary>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.ClientData.doc_number">
+            <summary>
+            Номер
+            </summary>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.ClientData.doc_date">
+            <summary>
+            Когда выдан
+            </summary>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.ClientData.doc_issuer">
+            <summary>
+            Кем выдан
+            </summary>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.ClientData.risk_level_type">
+            <summary>
+            Уровень риска
+            </summary>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.ClientData.ewp_data_id">
+            <summary>
+            ewp
+            </summary>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.ClientData.inn">
+            <summary>
+            ИНН
+            </summary>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.ClientData.okpo">
+            <summary>
+            ОКПО
+            </summary>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.ClientData.client_data_id">
+            <summary>
+            Заполняется для update клиента
+            </summary>
+        </member>
+        <member name="T:Bgs.Duet.Exchange.Client.Proxy.ClientAccountOpen">
+            <summary>
+            Класс, реализующий свойства объекта, описывающего
+            параметры вызова операции открытия счета клиента
+            </summary>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.ClientAccountOpen.SerializeOperationInfo(System.String)">
+            <summary>
+            Производит запись информации об исполняемой операции
+            в журнал операций текущего соединения
+            </summary>
+            <param name="fileName">Короткое (без указания пути) имя файла для создания
+            и ведения журнала операций</param>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.ClientAccountOpen.ToString">
+            <summary>
+            Возвращает строку, представляющую данный объект
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.ClientAccountOpen.cPart">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.ClientAccountOpen.cntrg_account_id">
+            <summary>
+            Возвращает или устанавливает идентификатор контрагента (для сводных счетов)
+            </summary>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.ClientAccountOpen.client_data_id">
+            <summary>
+            Возвращает или устанавливает идентификатор регистрационных 
+            данных клиента
+            </summary>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.ClientAccountOpen.client_tax_id1">
+            <summary>
+            Регистрационный номер клиента в налоговых органах
+            </summary>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.ClientAccountOpen.client_tax_id2">
+            <summary>
+            Дополнительный регистрационный номер клиента
+            </summary>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.ClientAccountOpen.client_index_id">
+            <summary>
+            Дополнительный идентификатор клиента
+            </summary>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.ClientAccountOpen.account_subnumber">
+            <summary>
+            Порядковый номер счета клиента
+            </summary>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.ClientAccountOpen.account_template_id">
+            <summary>
+            Идентификатор шаблона открытия счетов (для персональных счетов)
+            </summary>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.ClientAccountOpen.client_name">
+            <summary>
+            ФИО клиента или наименование организации
+            </summary>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.ClientAccountOpen.ext_account_number">
+            <summary>
+            Возвращает или устанавливает номер счета клиента
+            </summary>
+        </member>
+        <member name="T:Bgs.Duet.Exchange.Client.Proxy.ClientAccountOperation">
+            <summary>
+            Класс, реализующий свойства объекта, описывающего
+            параметры вызова операции зачисления/списания на/с счет(а) клиента
+            </summary>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.ClientAccountOperation.#ctor">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.ClientAccountOperation.SerializeOperationInfo(System.String)">
+            <summary>
+            Производит запись информации об исполняемой операции
+            в журнал операций текущего соединения
+            </summary>
+            <param name="fileName">Короткое (без указания пути) имя файла для создания
+            и ведения журнала операций</param>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.ClientAccountOperation.FunctionType">
+            <summary>
+            Возвращает или устанавливает код функции DUET
+            </summary>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.ClientAccountOperation.client_account_id">
+            <summary>
+            Возвращает или устанавливает идентификатор счета клиента
+            </summary>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.ClientAccountOperation.contract_bind_id">
+            <summary>
+            Возвращает или устанавливает идентификатор условий платежа
+            </summary>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.ClientAccountOperation.cntrg_account_id">
+            <summary>
+            Возвращает или устанавливает идентификатор счета контрагента
+            </summary>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.ClientAccountOperation.cntrg_clnt_acc_id">
+            <summary>
+            Возвращает или устанавливает идентификатор счета клиента-контрагента
+            </summary>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.ClientAccountOperation.transact_amount">
+            <summary>
+            Возвращает или устанавливает сумму операции
+            </summary>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.ClientAccountOperation.fee_amount">
+            <summary>
+            Возвращает или устанавливает сумму комиссии
+            </summary>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.ClientAccountOperation.currency">
+            <summary>
+            Возвращает или устанавливает код валюты документа
+            </summary>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.ClientAccountOperation.doc_num">
+            <summary>
+            Возвращает или устанавливает внешний номер документа
+            </summary>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.ClientAccountOperation.doc_date">
+            <summary>
+            Возвращает или устанавливает внешнюю дата документа
+            </summary>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.ClientAccountOperation.payment_details">
+            <summary>
+            Возвращает или устанавливает детали платежа
+            </summary>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.ClientAccountOperation.PaymentDetails">
+            <summary>
+            датали платежа - payment_details в виде строки.
+            </summary>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.ClientAccountOperation.subaccount">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.ClientAccountOperation.subname">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.ClientAccountOperation.subtaxid">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Bgs.Duet.Exchange.Client.Proxy.CliGlobalODOperation">
+            <summary>
+            Класс, реализующий свойства объекта, описывающего
+            параметры вызова операции открытия/закрытия глобального ОД
+            </summary>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.CliGlobalODOperation.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.CliGlobalODOperation.SerializeOperationInfo(System.String)">
+            <summary>
+            Производит запись информации об исполняемой операции
+            в журнал операций текущего соединения
+            </summary>
+            <param name="fileName">Короткое (без указания пути) имя файла для создания
+            и ведения журнала операций</param>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.CliGlobalODOperation.NewOdDate">
+            <summary>
+            Возвращает или устанавливает дату нового операицонного дня
+            при операции открытия глобального ОД
+            </summary>
+        </member>
+        <member name="T:Bgs.Duet.Exchange.Client.Proxy.CliMembershipODOperation">
+            <summary>
+            Класс, реализующий свойства объекта, описывающего
+            параметры вызова операции остановки/возобновления ОД участников
+            </summary>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.CliMembershipODOperation.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.CliMembershipODOperation.SerializeOperationInfo(System.String)">
+            <summary>
+            Производит запись информации об исполняемой операции
+            в журнал операций текущего соединения
+            </summary>
+            <param name="fileName">Короткое (без указания пути) имя файла для создания
+            и ведения журнала операций</param>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.CliMembershipODOperation.Action">
+            <summary>
+            Возвращает или устанавливает тип операции с ОД участников
+            </summary>
+        </member>
+        <member name="T:Bgs.Duet.Exchange.Client.Proxy.ClientAccountBlockData">
+            <summary>
+            Класс, реализующий свойства объекта, описывающего параметры операции 
+            временной блокировки счета клиента
+            </summary>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.ClientAccountBlockData.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.ClientAccountBlockData.SerializeOperationInfo(System.String)">
+            <summary>
+            Производит запись информации об исполняемой операции
+            в журнал операций текущего соединения
+            </summary>
+            <param name="fileName">Короткое (без указания пути) имя файла для создания
+            и ведения журнала операций</param>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.ClientAccountBlockData.ToString">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.ClientAccountBlockData.client_account_id">
+            <summary>
+            Возвращает или устанавливает идентификатор счета клиента
+            </summary>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.ClientAccountBlockData.block_action">
+            <summary>
+            Возвращает или устанавливает тип действия при блокировке
+            </summary>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.ClientAccountBlockData.reason">
+            <summary>
+            Основание выполнения операции
+            </summary>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.ClientAccountBlockData.function_type_id">
+            <summary>
+            Возвращает код функции DUET
+            </summary>
+        </member>
+        <member name="T:Bgs.Duet.Exchange.Client.Proxy.CardApplicationBlockData">
+            <summary>
+            Класс, реализующий свойства объекта, описывающего параметры операции 
+            блокировки счета приложения МК
+            </summary>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.CardApplicationBlockData.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.CardApplicationBlockData.SerializeOperationInfo(System.String)">
+            <summary>
+            Производит запись информации об исполняемой операции
+            в журнал операций текущего соединения
+            </summary>
+            <param name="fileName">Короткое (без указания пути) имя файла для создания
+            и ведения журнала операций</param>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.CardApplicationBlockData.ToString">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.CardApplicationBlockData.card_account_id">
+            <summary>
+            Возвращает или устанавливает идентификатор счета МК
+            </summary>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.CardApplicationBlockData.block_type">
+            <summary>
+            Возвращает или устанавливает тип блокировки
+            </summary>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.CardApplicationBlockData.block_action">
+            <summary>
+            Возвращает или устанавливает тип действия при блокировке
+            </summary>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.CardApplicationBlockData.reason">
+            <summary>
+            Основание выполнения операции
+            </summary>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.CardApplicationBlockData.function_type_id">
+            <summary>
+            Возвращает код функции DUET
+            </summary>
+        </member>
+        <member name="T:Bgs.Duet.Exchange.Client.Proxy.ClientAccountCloseData">
+            <summary>
+            Класс, реализующий свойства объекта, описывающего параметры операции 
+            предварительного закрытия счета клиента
+            </summary>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.ClientAccountCloseData.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.ClientAccountCloseData.SerializeOperationInfo(System.String)">
+            <summary>
+            Производит запись информации об исполняемой операции
+            в журнал операций текущего соединения
+            </summary>
+            <param name="fileName">Короткое (без указания пути) имя файла для создания
+            и ведения журнала операций</param>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.ClientAccountCloseData.client_account_id">
+            <summary>
+            Возвращает или устанавливает идентификатор счета клиента
+            </summary>
+        </member>
+        <member name="T:Bgs.Duet.Exchange.Client.Proxy.Registration">
+            <summary>
+            Предоставляет методы для регистрации в DUET по служебной МК
+            </summary>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.Registration.#ctor">
+            <summary>
+            Публичный конструктор
+            </summary>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.Registration.OpenSession(Bgs.Duet.Exchange.Client.Proxy.StaffCard.Card,System.String,System.Int32)">
+            <summary>
+            Осуществляет регистрацию по служебной МК
+            </summary>
+            <param name="staff_card">Объект, представляющий предоставленную служебную МК</param>
+            <param name="exch_host">Имя компьютера Сервера приложений Подсистемы обмена</param>
+            <param name="exch_rd_port">Порт домена регистрации Сервера приложений Подсистемы обмена</param>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.Registration.CurrentRegistration">
+            <summary>
+            Текущая регистрационная "сессия" с Сервером Приложений Exchange
+            </summary>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.Registration.ConnectionId">
+            <summary>
+            Возвращает идентификатор текщей сессии, выработанный
+            в результате успешной регистрации
+            </summary>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.Registration.StaffCard">
+            <summary>
+            Возвращает или устанавливает объект, представляющий служебную МК
+            </summary>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.Registration.CurrentCardInfo">
+            <summary>
+            Возвращает информацию о служебной МК
+            </summary>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.Registration.ServerHost">
+            <summary>
+            Возвращает или устанавливает имя компьютера Сервера приложений Подсистемы обмена
+            </summary>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.Registration.ServerPort">
+            <summary>
+            Возвращает или устанавливает порт Сервера приложений Подсистемы обмена
+            </summary>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.Registration.RegistrationStatus">
+            <summary>
+            Возвращает статус регистрации
+            </summary>
+        </member>
+        <member name="T:Bgs.Duet.Exchange.Client.Proxy.OperationRequsites">
+            <summary>
+            Предоставляет методы для реализации алгоритма 
+            выбора реквизитов платежных операций.
+            </summary>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.OperationRequsites.#ctor">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.OperationRequsites.GetContragentByClientAccount(System.Int32,System.Int32,System.String@,System.Int32@,System.Int16@,System.String@,System.Int32@,System.Int32@,System.String@,System.Int32@,System.String@,System.String@,System.String@)">
+            <summary>
+            Осуществляет поиск контрагента по идентификатору счета клиента или
+            по номеру счету клиента
+            </summary>
+            <param name="cntrg_region">Регион контрагента</param>
+            <param name="cntrg_bank_number">Номер банка контрагента</param>
+            <param name="client_account_number">Возвращаемое значение: Внешнее представление номера счета клиента</param>
+            <param name="client_account_id">Возвращаемое значение: Идентификатор счета клиента</param>
+            <param name="currency">Возвращаемое значение: Код валюты контрагента</param>
+            <param name="client_name">Возвращаемое значение: Наименование клиента</param>
+            <param name="client_class">Возвращаемое значение: Класс клиента</param>
+            <param name="cntrg_account_id">Возвращаемое значение: Идентификатор счета контрагента</param>
+            <param name="cntrg_INN">Возвращаемое значение: ИНН контрагента</param>
+            <param name="account_template_id">Возвращаемое значение: Идентификатор шаблона открытия счетов</param>
+            <param name="cntrg_account_number">Возвращаемое значение: Внешний номер счета контрагента</param>
+            <param name="cntrg_name">Возвращаемое значение: Наименование контрагента/счета контрагента</param>
+            <param name="SMCMessage">Возвращаемое значение: Текст сообщения об ошибке</param>
+            <returns>Результат выполнения: 0 - успешно</returns>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.OperationRequsites.GetCompositeClientAccounts(System.Int32,System.String,System.String,System.String)">
+            <summary>
+            Возвращает список открытых клиентских счетов контрагента
+            </summary>
+            <param name="cntrg_account_id">Идентификатор вышестояшего счета контрагента</param>
+            <param name="filter_acc_num">Фильтр по номеру клиентского счета</param>
+            <param name="filter_cli_name">Фильтр по имени клиента</param>
+            <param name="filter_cli_data">Фильтр по персональным данным клиента</param>
+            <returns>Cписок открытых клиентских счетов указанного контрагента</returns>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.OperationRequsites.GetContragentTemplates(System.Int32,System.Int32)">
+            <summary>
+            Возвращает список шаблонов счетов контрагентов
+            </summary>
+            <param name="contragent_type_id">Тип контрагента, содержащийся в списке допустимых платежных операций,
+            возвращаемом методом GetExecuterTypeOperations</param>
+            <param name="currency">Код валюты</param>
+            <returns>Cписок шаблонов счетов контрагентов</returns>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.OperationRequsites.GetClientAccountInfo(System.Int32,System.String@,System.Int32@,System.Int32@,System.String@,System.String@)">
+            <summary>
+            Возвращает информацию об указанном счете клиента
+            </summary>
+            <param name="cli_account_id">Идентификатор счета клиента</param>
+            <param name="ext_account_number">Возвращаемое значение: Номер счета клиента</param>
+            <param name="account_state">Возвращаемое значение: Состояние счета клиента</param>
+            <param name="client_data_id">Возвращаемое значение: Идентификатор регистрационных данных клиента</param>
+            <param name="client_name">Возвращаемое значение: Имя/название клиента</param>
+            <param name="personal_data">Возвращаемое значение: Персональные данные клиента</param>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.OperationRequsites.GetMembershipClientAccounts(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.String,System.String,System.String)">
+            <summary>
+            Возвращает список клиентских счетов указанного оперпункта указанного участника
+            </summary>
+            <param name="cli_class">Класс клиента</param>
+            <param name="region">Регион участника</param>
+            <param name="bank_number">Банк участника</param>
+            <param name="participant">Операционный пункт участника</param>
+            <param name="currency">Код валюты</param>
+            <param name="filter_acc_num">Фильтр по номеру клиентского счета</param>
+            <param name="filter_cli_name">Фильтр по имени клиента</param>
+            <param name="filter_cli_data">Фильтр по персональным данным клиента</param>
+            <returns>Cписок клиентских счетов участника</returns>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.OperationRequsites.GetContragentAccountList(System.String,Bgs.Duet.Exchange.ApplicationServer.Common.Classify.InsertedFlag)">
+            <summary>
+            Возвращает список счетов контрагентов для данного участника и 
+            выбранных реквизитов банка
+            </summary>
+            <param name="bank_address_id">Идентификатор реквизитов банка контрагента</param>
+            <param name="inserted_flag">Признак источника реквизитов банка:
+            0 – внешний мир;
+            1 – ЦЭ;
+            2 – локальный банк;</param>
+            <returns>Список счетов контрагентов для данного участника и выбранных реквизитов банка</returns>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.OperationRequsites.GetContragentBankRequisite(System.Int16,System.String,Bgs.Duet.Exchange.ApplicationServer.Common.Classify.InsertedFlag,System.Int32@,System.String@)">
+            <summary>
+            Осуществляет поиск реквизитов банка по коду валюты и идентификатору реквизитов банка или 
+            по кодам региона/участника
+            </summary>
+            <param name="currency">Код валюты</param>
+            <param name="bank_address_id">Идентификатор записи реквизитов банка</param>
+            <param name="inserted_flag">Признак источника реквизитов</param>
+            <param name="many_banks_found">Флаг, определяющий, сколько банков найдено:
+            -1 - ни одного (ошибка выполнения процедуры);
+             0 - один банк;
+             1 - несколько банков</param>
+            <param name="SMCMessage">Текст сообщения об ошибке</param>
+            <returns>Реквизиты найденного банка</returns>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.OperationRequsites.GetContragentBankRequisite(System.Int16,System.Int32,System.Int32,System.Int32@,System.String@)">
+            <summary>
+            Осуществляет поиск реквизитов банка по коду валюты и идентификатору реквизитов банка или 
+            по кодам региона/участника
+            </summary>
+            <param name="currency">Код валюты</param>
+            <param name="region">Код региона</param>
+            <param name="bank_number">Номер участника</param>
+            <param name="many_banks_found">Флаг, определяющий, сколько банков найдено:
+            -1 - ни одного (ошибка выполнения процедуры);
+             0 - один банк;
+             1 - несколько банков</param>
+            <param name="SMCMessage">Текст сообщения об ошибке</param>
+            <returns>Реквизиты найденного банка</returns>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.OperationRequsites.GetExecuterTypeOperations(System.Int32,System.Int32,System.Byte,System.Byte)">
+            <summary>
+            Возвращает список доступных исполнителю платежных операций
+            </summary>
+            <param name="function_group_id">Функциональная группа</param>
+            <param name="client_class">Класс клиента, по которому осуществляется операция</param>
+            <param name="is_own">Принадлежность клиента участнику исполнителя (0 - нет, 1 - да)</param>
+            <param name="is_mc">Операция с МК (0 - нет, 1 - да)</param>
+            <returns>Cписок допустимых платежных операций</returns>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.OperationRequsites.GetContragentPermanents(System.Int32,System.Int32)">
+            <summary>
+            Возвращает список счетов контрагентов
+            </summary>
+            <param name="contragent_type_id">Тип контрагента, содержащийся в списке допустимых платежных операций,
+            возвращаемом методом GetExecuterTypeOperations</param>
+            <param name="currency">Код валюты исполнителя</param>
+            <returns>Cписок счетов контрагентов</returns>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.OperationRequsites.GetContragentAccountInfo(System.String,Bgs.Duet.Exchange.ApplicationServer.Common.Classify.InsertedFlag,System.Int32@,System.String@,System.String@,System.Int32@,Bgs.Duet.Exchange.ApplicationServer.Common.Classify.AccountMode@,System.String@,System.String@)">
+            <summary>
+            Осуществляет поиск счета контрагента по идентификатору счета контрагента или
+            по внешнему номеру счета контрагента
+            </summary>
+            <param name="bank_address_id">Идентификатор реквизитов банка контрагента</param>
+            <param name="inserted_flag">Признак источника реквизитов банка:
+            0 – внешний мир;
+            1 – ЦЭ;
+            2 – локальный банк;</param>
+            <param name="cntrg_account_id">Возвращаемое значение: Идентификатор счета контрагента</param>
+            <param name="cntrg_account_number">Возвращаемое значение: Внешний номер счета контрагента</param>
+            <param name="cntrg_INN">Возвращаемое значение: ИНН контрагента</param>
+            <param name="account_template_id">Возвращаемое значение: Идентификатор шаблона открытия счетов</param>
+            <param name="account_mode">Возвращаемое значение: Тип счета контрагента</param>
+            <param name="cntrg_name">Возвращаемое значение: Наименование контрагента/счета контрагента</param>
+            <param name="SMCMessage">Возвращаемое значение: Текст сообщения об ошибке</param>
+            <returns>Результат выполнения процедуры</returns>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.OperationRequsites.GetBankRequisites(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Возвращает список реквизитов банков участника
+            </summary>
+            <param name="region">Код региона</param>
+            <param name="bank_number">Номер банка участника</param>
+            <param name="currency">Код валюты</param>
+            <returns>Список реквизитов банков участника</returns>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.OperationRequsites.GetBankRequisites">
+            <summary>
+            Возвращает полный список реквизитов зарегестрированных в базе данных банков
+            </summary>
+            <returns>Список реквизитов зарегестрированных в базе данных банков</returns>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.OperationRequsites.GetNationalCurrency">
+            <summary>
+            Возвращает информацию о национальной валюте
+            </summary>
+            <returns>Информация о национальной валюте</returns>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.OperationRequsites.GetCurrenciesList">
+            <summary>
+            Возвращает список всех зарегистрированных в БД DUET валют
+            </summary>
+            <returns>Список зарегистрированных валют</returns>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.OperationRequsites.GetParticipantList">
+            <summary>
+            Возвращает список операционных пунктов участника исполнителя
+            </summary>
+            <returns>Список операционных пунктов</returns>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.OperationRequsites.MainSession">
+            <summary>
+            Возвращает или устанавливает объект, содержащий сессию
+            с Сервером приложений Подсистемы обмена.
+            </summary>
+        </member>
+        <member name="T:Bgs.Duet.Exchange.Client.Proxy.Common">
+            <summary>
+            Предназначен для инициализации клиентского взаимодействия
+            с Сервером приложений Подсистемы обмена. Должен создаваться
+            после успешной регистрации в DUET по служебной МК.
+            </summary>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.Common.#ctor">
+            <summary>
+            Публичный конструктор
+            </summary>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.Common.Copy(System.Type,System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="destType"></param>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.Common.Create">
+            <summary>
+            Создает сессию на Сервере приложений Подсистемы обмена
+            </summary>
+            <returns>Информация об исполнителе, создавшем сессию</returns>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.Common.ReleaseObjects">
+            <summary>
+            Освобождает ресурсы, занимаемые текущей сессией
+            с Сервером приложений Подсистемы обмена
+            </summary>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.Common.GetServerDateTime">
+            <summary>
+            Возвращает текущую дату/время SQL-сервера DUET
+            </summary>
+            <returns>Текущая дата/время SQL-сервера DUET</returns>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.Common.GetContragentByClientAccount(System.Int32,System.Int32,System.String@,System.Int32@,System.Int16@,System.String@,System.Int32@,System.Int32@,System.String@,System.Int32@,System.String@,System.String@,System.String@)">
+            <summary>
+            Осуществляет поиск контрагента по идентификатору счета клиента или
+            по номеру счету клиента
+            </summary>
+            <param name="cntrg_region">Регион контрагента</param>
+            <param name="cntrg_bank_number">Номер банка контрагента</param>
+            <param name="client_account_number">Возвращаемое значение: Внешнее представление номера счета клиента</param>
+            <param name="client_account_id">Возвращаемое значение: Идентификатор счета клиента</param>
+            <param name="currency">Возвращаемое значение: Код валюты контрагента</param>
+            <param name="client_name">Возвращаемое значение: Наименование клиента</param>
+            <param name="client_class">Возвращаемое значение: Класс клиента</param>
+            <param name="cntrg_account_id">Возвращаемое значение: Идентификатор счета контрагента</param>
+            <param name="cntrg_INN">Возвращаемое значение: ИНН контрагента</param>
+            <param name="account_template_id">Возвращаемое значение: Идентификатор шаблона открытия счетов</param>
+            <param name="cntrg_account_number">Возвращаемое значение: Внешний номер счета контрагента</param>
+            <param name="cntrg_name">Возвращаемое значение: Наименование контрагента/счета контрагента</param>
+            <param name="SMCMessage">Возвращаемое значение: Текст сообщения об ошибке</param>
+            <returns>Результат выполнения: 0 - успешно</returns>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.Common.GetCompositeClientAccounts(System.Int32,System.String,System.String,System.String)">
+            <summary>
+            Возвращает список открытых клиентских счетов контрагента
+            </summary>
+            <param name="cntrg_account_id">Идентификатор вышестояшего счета контрагента</param>
+            <param name="filter_acc_num">Фильтр по номеру клиентского счета</param>
+            <param name="filter_cli_name">Фильтр по имени клиента</param>
+            <param name="filter_cli_data">Фильтр по персональным данным клиента</param>
+            <returns>Cписок открытых клиентских счетов указанного контрагента</returns>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.Common.GetContragentTemplates(System.Int32,System.Int32)">
+            <summary>
+            Возвращает список шаблонов счетов контрагентов
+            </summary>
+            <param name="contragent_type_id">Тип контрагента, содержащийся в списке допустимых платежных операций,
+            возвращаемом методом GetExecuterTypeOperations</param>
+            <param name="currency">Код валюты</param>
+            <returns>Cписок шаблонов счетов контрагентов</returns>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.Common.GetClientAccountInfo(System.Int32,System.String@,System.Int32@,System.Int32@,System.String@,System.String@)">
+            <summary>
+            Возвращает информацию об указанном счете клиента
+            </summary>
+            <param name="cli_account_id">Идентификатор счета клиента</param>
+            <param name="ext_account_number">Возвращаемое значение: Номер счета клиента</param>
+            <param name="account_state">Возвращаемое значение: Состояние счета клиента</param>
+            <param name="client_data_id">Возвращаемое значение: Идентификатор регистрационных данных клиента</param>
+            <param name="client_name">Возвращаемое значение: Имя/название клиента</param>
+            <param name="personal_data">Возвращаемое значение: Персональные данные клиента</param>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.Common.GetMembershipClientAccounts(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.String,System.String,System.String)">
+            <summary>
+            Возвращает список клиентских счетов указанного оперпункта указанного участника
+            </summary>
+            <param name="cli_class">Класс клиента</param>
+            <param name="region">Регион участника</param>
+            <param name="bank_number">Банк участника</param>
+            <param name="participant">Операционный пункт участника</param>
+            <param name="currency">Код валюты</param>
+            <param name="filter_acc_num">Фильтр по номеру клиентского счета</param>
+            <param name="filter_cli_name">Фильтр по имени клиента</param>
+            <param name="filter_cli_data">Фильтр по персональным данным клиента</param>
+            <returns>Cписок клиентских счетов участника</returns>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.Common.GetContragentAccountList(System.String,Bgs.Duet.Exchange.ApplicationServer.Common.Classify.InsertedFlag)">
+            <summary>
+            Возвращает список счетов контрагентов для данного участника и 
+            выбранных реквизитов банка
+            </summary>
+            <param name="bank_address_id">Идентификатор реквизитов банка контрагента</param>
+            <param name="inserted_flag">Признак источника реквизитов банка:
+            0 – внешний мир;
+            1 – ЦЭ;
+            2 – локальный банк;</param>
+            <returns>Список счетов контрагентов для данного участника и выбранных реквизитов банка</returns>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.Common.GetContragentBankRequisite(System.Int16,System.String,Bgs.Duet.Exchange.ApplicationServer.Common.Classify.InsertedFlag,System.Int32@,System.String@)">
+            <summary>
+            Осуществляет поиск реквизитов банка по коду валюты и идентификатору реквизитов банка или 
+            по кодам региона/участника
+            </summary>
+            <param name="currency">Код валюты</param>
+            <param name="bank_address_id">Идентификатор записи реквизитов банка</param>
+            <param name="inserted_flag">Признак источника реквизитов</param>
+            <param name="many_banks_found">Флаг, определяющий, сколько банков найдено:
+            -1 - ни одного (ошибка выполнения процедуры);
+             0 - один банк;
+             1 - несколько банков</param>
+            <param name="SMCMessage">Текст сообщения об ошибке</param>
+            <returns>Реквизиты найденного банка</returns>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.Common.GetContragentBankRequisite(System.Int16,System.Int32,System.Int32,System.Int32@,System.String@)">
+            <summary>
+            Осуществляет поиск реквизитов банка по коду валюты и идентификатору реквизитов банка или 
+            по кодам региона/участника
+            </summary>
+            <param name="currency">Код валюты</param>
+            <param name="region">Код региона</param>
+            <param name="bank_number">Номер участника</param>
+            <param name="many_banks_found">Флаг, определяющий, сколько банков найдено:
+            -1 - ни одного (ошибка выполнения процедуры);
+             0 - один банк;
+             1 - несколько банков</param>
+            <param name="SMCMessage">Текст сообщения об ошибке</param>
+            <returns>Реквизиты найденного банка</returns>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.Common.GetExecuterTypeOperations(System.Int32,System.Int32,System.Byte,System.Byte)">
+            <summary>
+            Возвращает список доступных исполнителю платежных операций
+            </summary>
+            <param name="function_group_id">Функциональная группа</param>
+            <param name="client_class">Класс клиента, по которому осуществляется операция</param>
+            <param name="is_own">Принадлежность клиента участнику исполнителя (0 - нет, 1 - да)</param>
+            <param name="is_mc">Операция с МК (0 - нет, 1 - да)</param>
+            <returns>Cписок допустимых платежных операций</returns>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.Common.GetContragentPermanents(System.Int32,System.Int32)">
+            <summary>
+            Возвращает список счетов контрагентов
+            </summary>
+            <param name="contragent_type_id">Тип контрагента, содержащийся в списке допустимых платежных операций,
+            возвращаемом методом GetExecuterTypeOperations</param>
+            <param name="currency">Код валюты исполнителя</param>
+            <returns>Cписок счетов контрагентов</returns>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.Common.GetContragentAccountInfo(System.String,Bgs.Duet.Exchange.ApplicationServer.Common.Classify.InsertedFlag,System.Int32@,System.String@,System.String@,System.Int32@,Bgs.Duet.Exchange.ApplicationServer.Common.Classify.AccountMode@,System.String@,System.String@)">
+            <summary>
+            Осуществляет поиск счета контрагента по идентификатору счета контрагента или
+            по внешнему номеру счета контрагента
+            </summary>
+            <param name="bank_address_id">Идентификатор реквизитов банка контрагента</param>
+            <param name="inserted_flag">Признак источника реквизитов банка:
+            0 – внешний мир;
+            1 – ЦЭ;
+            2 – локальный банк;</param>
+            <param name="cntrg_account_id">Возвращаемое значение: Идентификатор счета контрагента</param>
+            <param name="cntrg_account_number">Возвращаемое значение: Внешний номер счета контрагента</param>
+            <param name="cntrg_INN">Возвращаемое значение: ИНН контрагента</param>
+            <param name="account_template_id">Возвращаемое значение: Идентификатор шаблона открытия счетов</param>
+            <param name="account_mode">Возвращаемое значение: Тип счета контрагента</param>
+            <param name="cntrg_name">Возвращаемое значение: Наименование контрагента/счета контрагента</param>
+            <param name="SMCMessage">Возвращаемое значение: Текст сообщения об ошибке</param>
+            <returns>Результат выполнения процедуры</returns>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.Common.GetBankRequisites(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Возвращает список реквизитов банков участника
+            </summary>
+            <param name="region">Код региона</param>
+            <param name="bank_number">Номер банка участника</param>
+            <param name="currency">Код валюты</param>
+            <returns>Список реквизитов банков участника</returns>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.Common.GetBankRequisites">
+            <summary>
+            Возвращает полный список реквизитов зарегестрированных в базе данных банков
+            </summary>
+            <returns>Список реквизитов зарегестрированных в базе данных банков</returns>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.Common.GetNationalCurrency">
+            <summary>
+            Возвращает информацию о национальной валюте
+            </summary>
+            <returns>Информация о национальной валюте</returns>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.Common.GetCurrenciesList">
+            <summary>
+            Возвращает список всех зарегистрированных в БД DUET валют
+            </summary>
+            <returns>Список зарегистрированных валют</returns>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.Common.GetParticipantList">
+            <summary>
+            Возвращает список операционных пунктов участника исполнителя
+            </summary>
+            <returns>Список операционных пунктов</returns>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.Common.Prepare_PaymentOperations(Bgs.Duet.Exchange.ApplicationServer.Common.Classify.CliAccountOperation)">
+            <summary>
+            Выполняет подготовку (<b>первая стадия</b>)
+            операции зачисления/списания на/с счет(а) клиента
+            </summary>
+            <param name="operationData">Параметры операции</param>
+            <returns>Результат выполнения операции</returns>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.Common.Confirm_PaymentOperations(Bgs.Duet.Exchange.ApplicationServer.Common.Classify.ExchangeOperationInfo)">
+            <summary>
+            Выполняет подтверждение (<b>вторая стадия</b>)	операции на зачисление/списание на/с счет(а) клиента,<br/>
+            а также <b>подтверждение</b> подготовленной операции в DUET
+            </summary>
+            <param name="operationInfo">Параметры операции</param>
+            <returns>Результат выполнения операции</returns>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.Common.Cancel_PaymentOperations(Bgs.Duet.Exchange.ApplicationServer.Common.Classify.ExchangeOperationInfo)">
+            <summary>
+            Выполняет отмену (<b>вторая стадия</b>)
+            операции на зачисление/списание на/с счет(а) клиента,<br/>
+            а также <b>отмену</b> подготовленной операции в DUET
+            </summary>
+            <param name="operationInfo">Параметры операции</param>
+            <returns>Результат выполнения операции</returns>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.Common.PackCreate(Bgs.Duet.Exchange.ApplicationServer.Common.Classify.PackCreateInfo)">
+            <summary>
+            Создает заголовок пакета и возвращает идентификатор этого пакета
+            </summary>
+            <param name="packInfo">содержит информацию о типе пакета, количестве записей в пакете</param>
+            <returns></returns>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.Common.PackPrepare(Bgs.Duet.Exchange.ApplicationServer.Common.Classify.PackPrepareInfo)">
+            <summary>
+            Записывает набор записей в заданный пакет в буфере PACK БД DUET
+            </summary>
+            <param name="packInfo">Массив объектов ExchangeOperationInfo, соответствующих типу пакета PackType</param>
+            <returns>массив результатов помещения записей в PACK</returns>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.Common.PackConfirm(Bgs.Duet.Exchange.ApplicationServer.Common.Classify.ExchangeOperationInfo)">
+            <summary>
+            Выполняет регистрацию заданного пакета (переводит в состояние «Сформирован») и ставит пакет в очередь на обработку
+            </summary>
+            <param name="packInfo">содержит идентификатор удаляемого пакета pack_id, PackQueueInfo-Параметры по добавлению пакета в очередь (для формирования отложенных пакетов)</param>
+            <returns></returns>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.Common.PackExecute(Bgs.Duet.Exchange.ApplicationServer.Common.Classify.ExchangeOperationInfo)">
+            <summary>
+            Запускает синхронную обработку пакета или ставит пакет в очередь на обработку
+            </summary>
+            <param name="packInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.Common.PackDelete(Bgs.Duet.Exchange.ApplicationServer.Common.Classify.ExchangeOperationInfo)">
+            <summary>
+            Удаление необработанного пакета
+            </summary>
+            <param name="packInfo">содержит идентификатор удаляемого пакета pack_id</param>
+            <returns></returns>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.Common.ConfirmOperation(Bgs.Duet.Exchange.ApplicationServer.Common.Classify.ContragentConfirmInfo)">
+            <summary>
+            Выполнение
+            </summary>
+            <param name="cntrgInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.Common.Prepare_CliCreate(Bgs.Duet.Exchange.ApplicationServer.Common.Classify.CliDataCreate)">
+            <summary>
+            Выполняет подготовку (<b>первая стадия</b>)
+            операции регистрации клиента
+            </summary>
+            <param name="operationData">Параметры операции</param>
+            <returns>Результат выполнения операции</returns>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.Common.Prepare_CliCreateExt(Bgs.Duet.Exchange.ApplicationServer.Common.Classify.CliDataCreateExt)">
+            <summary>
+            Выполняет подготовку (<b>первая стадия</b>)
+            операции регистрации клиента (4.7.7)
+            </summary>
+            <param name="operationData">Параметры операции</param>
+            <returns>Результат выполнения операции</returns>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.Common.Prepare_CliUpdateExt(Bgs.Duet.Exchange.ApplicationServer.Common.Classify.CliDataUpdateExt)">
+            <summary>
+            Выполняет подготовку (<b>первая стадия</b>)
+            операции регистрации клиента (4.7.7)
+            </summary>
+            <param name="operationData">Параметры операции</param>
+            <returns>Результат выполнения операции</returns>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.Common.Confirm_CliCreate(Bgs.Duet.Exchange.ApplicationServer.Common.Classify.ExchangeOperationInfo)">
+            <summary>
+            Выполняет подтверждение (<b>вторая стадия</b>)
+            операции регистрации клиента
+            </summary>
+            <param name="operationInfo">Параметры операции</param>
+            <returns>Результат выполнения операции</returns>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.Common.Cancel_CliCreate(Bgs.Duet.Exchange.ApplicationServer.Common.Classify.ExchangeOperationInfo)">
+            <summary>
+            Выполняет отмену (<b>вторая стадия</b>)
+            операции регистрации клиента
+            </summary>
+            <param name="operationInfo">Параметры операции</param>
+            <returns>Результат выполнения операции</returns>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.Common.Prepare_AccountOpen(Bgs.Duet.Exchange.ApplicationServer.Common.Classify.CliAccountOpen)">
+            <summary>
+            Выполняет подготовку (<b>первая стадия</b>)
+            операции открытия счета клиента
+            </summary>
+            <param name="operationData">Параметры операции</param>
+            <returns>Результат выполнения операции</returns>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.Common.Confirm_AccountOpen(Bgs.Duet.Exchange.ApplicationServer.Common.Classify.ExchangeOperationInfo)">
+            <summary>
+            Выполняет подтверждение (<b>вторая стадия</b>)
+            операции открытия счета клиента
+            </summary>
+            <param name="operationInfo">Параметры операции</param>
+            <returns>Результат выполнения операции</returns>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.Common.Cancel_AccountOpen(Bgs.Duet.Exchange.ApplicationServer.Common.Classify.ExchangeOperationInfo)">
+            <summary>
+            Выполняет отмену (<b>вторая стадия</b>)
+            операции открытия счета клиента
+            </summary>
+            <param name="operationData">Параметры операции</param>
+            <returns>Результат выполнения операции</returns>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.Common.ManageGlobalOD(Bgs.Duet.Exchange.ApplicationServer.Common.Classify.GlobalODOperation)">
+            <summary>
+            Выполняет открытие/закрытие глобального ОД
+            </summary>
+            <param name="operationData">Параметры операции</param>
+            <returns>Результат выполнения операции</returns>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.Common.ManageMembershipOD(Bgs.Duet.Exchange.ApplicationServer.Common.Classify.MembershipODOperation)">
+            <summary>
+            Выполняет команду остановки/возобновления ОД участников
+            </summary>
+            <param name="operationData">Параметры операции</param>
+            <returns>Результат выполнения операции</returns>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.Common.Prepare_CliAccountBlock(Bgs.Duet.Exchange.ApplicationServer.Common.Classify.CliAccountBlock)">
+            <summary>
+            Выполняет подготовку (<b>первая стадия</b>)
+            операции временной блокировки счета клиента
+            </summary>
+            <param name="operationData">Параметры операции</param>
+            <returns>Результат выполнения операции</returns>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.Common.Confirm_CliAccountBlock(Bgs.Duet.Exchange.ApplicationServer.Common.Classify.ExchangeOperationInfo)">
+            <summary>
+            Выполняет подтверждение (<b>вторая стадия</b>)
+            операции временной блокировки счета клиента
+            </summary>
+            <param name="operationInfo">Параметры операции</param>
+            <returns>Результат выполнения операции</returns>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.Common.Prepare_CardAccountBlock(Bgs.Duet.Exchange.ApplicationServer.Common.Classify.CardAccountBlock)">
+            <summary>
+            Выполняет подготовку (<b>первая стадия</b>)
+            операции блокировки счета приложения МК
+            </summary>
+            <param name="operationData">Параметры операции</param>
+            <returns>Результат выполнения операции</returns>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.Common.Confirm_CardAccountBlock(Bgs.Duet.Exchange.ApplicationServer.Common.Classify.ExchangeOperationInfo)">
+            <summary>
+            Выполняет подтверждение (<b>вторая стадия</b>)
+            операции блокировки счета приложения МК
+            </summary>
+            <param name="operationInfo">Параметры операции</param>
+            <returns>Результат выполнения операции</returns>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.Common.ExecutePreclose(Bgs.Duet.Exchange.ApplicationServer.Common.Classify.ClientAccountClose)">
+            <summary>
+            Выполняет предварительное закрытие счета клиента
+            </summary>
+            <param name="operationData">Параметры операции</param>
+            <returns>Результат выполнения операции</returns>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.Common.ExecuteCloseZero(Bgs.Duet.Exchange.ApplicationServer.Common.Classify.ClientAccountClose)">
+            <summary>
+            Выполняет закрытие счета клиента c нулевым остатком
+            </summary>
+            <param name="operationData">Параметры операции</param>
+            <returns>Результат выполнения операции</returns>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.Common.EMVApplicationOperation(Bgs.Duet.Exchange.ApplicationServer.Common.Classify.EMVOperation)">
+            <summary>
+            Обработка заявки EMV
+            </summary>
+            <param name="operationData">Параметры операции</param>
+            <returns>Результат выполнения операции</returns>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.Common.EMVTransactionsPack(Bgs.Duet.Exchange.ApplicationServer.Common.Classify.EMVOperation)">
+            <summary>
+            Обработка транзакции EMV
+            </summary>
+            <param name="operationData">Параметры операции</param>
+            <returns>Результат выполнения операции</returns>
+            <exclude/>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.Common.EMVAccountOperation(Bgs.Duet.Exchange.ApplicationServer.Common.Classify.EMVOperation)">
+            <summary>
+            Загрука/выгрузка EMV
+            </summary>
+            <param name="operationData">Параметры операции</param>
+            <returns>Результат выполнения операции</returns>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.Common.CNFConfirm(Bgs.Duet.Exchange.ApplicationServer.Common.Classify.CNFOperation)">
+            <summary>
+            Подтверждение CNF
+            </summary>
+            <param name="operationData">Параметры операции</param>
+            <returns>Результат выполнения операции</returns>
+            <exclude/>
+        </member>
+        <member name="M:Bgs.Duet.Exchange.Client.Proxy.Common.CNFCancel(Bgs.Duet.Exchange.ApplicationServer.Common.Classify.CNFOperation)">
+            <summary>
+            Подтверждение CNF
+            </summary>
+            <param name="operationData">Параметры операции</param>
+            <returns>Результат выполнения операции</returns>
+            <exclude/>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.Common.CurrentCommon">
+            <summary>
+            Текущая "сессия" с Сервером Приложений ПОД
+            </summary>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.Common.CurrentRegistration">
+            <summary>
+            Возвращает или устанавливает объект регистрации в DUET по служебной МК
+            </summary>
+        </member>
+        <member name="P:Bgs.Duet.Exchange.Client.Proxy.Common.CurrentUserInfo">
+            <summary>
+            Информация по текущему пользователю
+            </summary>
+        </member>
+    </members>
+</doc>

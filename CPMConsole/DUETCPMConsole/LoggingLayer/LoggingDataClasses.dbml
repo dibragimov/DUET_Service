@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Database Name="Logs" Class="LoggingDataClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.\SQLEXPRESS;AttachDbFilename=|DataDirectory|\Data\Logs.mdf;Integrated Security=True;User Instance=True" SettingsObjectName="DUETCPMConsole.Properties.Settings" SettingsPropertyName="LogsConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Operations" Member="Operations">
+    <Type Name="Operation">
+      <Column Name="SessionID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ClientAccountID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ContrAgentAccountID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ContrAgentClientAccountID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ContractBindID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ExternalDocDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ExternalDocNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="feeAmount" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="FunctionType" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PaymentDetails" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="TransactAmount" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="CurrentDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Result" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ResultNote" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ResultLog" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Worklogs" Member="Worklogs">
+    <Type Name="Worklog">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Code" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Time" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Message" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="Tip" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

@@ -1,0 +1,345 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{832D3F35-BA4F-4405-BDC1-088E0E06BD50}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CPMPayAgentService</RootNamespace>
+    <AssemblyName>CPMPayAgentService</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <StartupObject>CPMPayAgentService.Program</StartupObject>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>http://localhost/CPMPayAgentService/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Bgs.Duet, Version=1.0.0.0, Culture=neutral, PublicKeyToken=e3978182d4695540, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLL\Bgs.Duet.dll</HintPath>
+    </Reference>
+    <Reference Include="Bgs.Duet.Exchange.ApplicationServer.Common.Classify, Version=4.7.7.1303, Culture=neutral, PublicKeyToken=e3978182d4695540, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLL\Bgs.Duet.Exchange.ApplicationServer.Common.Classify.dll</HintPath>
+    </Reference>
+    <Reference Include="Bgs.Duet.Exchange.Client.Proxy, Version=4.7.7.1303, Culture=neutral, PublicKeyToken=e3978182d4695540, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLL\Bgs.Duet.Exchange.Client.Proxy.dll</HintPath>
+    </Reference>
+    <Reference Include="Bgs.Duet.Exchange.Client.Proxy.StaffCard, Version=4.7.7.1303, Culture=neutral, PublicKeyToken=e3978182d4695540, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLL\Bgs.Duet.Exchange.Client.Proxy.StaffCard.dll</HintPath>
+    </Reference>
+    <Reference Include="Bgs.Duet.Exchange.InterfaceV1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=e3978182d4695540, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\dll\Bgs.Duet.Exchange.InterfaceV1.dll</HintPath>
+    </Reference>
+    <Reference Include="Bgs.Duet.Exchange.Remoting.Sink, Version=4.7.7.1303, Culture=neutral, PublicKeyToken=e3978182d4695540, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLL\Bgs.Duet.Exchange.Remoting.Sink.dll</HintPath>
+    </Reference>
+    <Reference Include="Bgs.Duet.Exchange.Remoting.Sink.Client, Version=4.7.7.1303, Culture=neutral, PublicKeyToken=e3978182d4695540, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLL\Bgs.Duet.Exchange.Remoting.Sink.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Bgs.Duet.Exchange.Remoting.Sink.Monitor, Version=4.7.7.1303, Culture=neutral, PublicKeyToken=e3978182d4695540, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLL\Bgs.Duet.Exchange.Remoting.Sink.Monitor.dll</HintPath>
+    </Reference>
+    <Reference Include="Bgs.Duet.Exchange.Server.Common, Version=4.7.7.1303, Culture=neutral, PublicKeyToken=e3978182d4695540, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLL\Bgs.Duet.Exchange.Server.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Bgs.Duet.Exchange.Server.Common.ClientContext, Version=4.7.7.1303, Culture=neutral, PublicKeyToken=e3978182d4695540, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLL\Bgs.Duet.Exchange.Server.Common.ClientContext.dll</HintPath>
+    </Reference>
+    <Reference Include="Bgs.Duet.Exchange.Server.RemoteFactory, Version=4.7.7.1303, Culture=neutral, PublicKeyToken=e3978182d4695540, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLL\Bgs.Duet.Exchange.Server.RemoteFactory.dll</HintPath>
+    </Reference>
+    <Reference Include="Bgs.Duet.Exchange.Server.TransApp, Version=4.7.7.1303, Culture=neutral, PublicKeyToken=e3978182d4695540, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLL\Bgs.Duet.Exchange.Server.TransApp.dll</HintPath>
+    </Reference>
+    <Reference Include="Bgs.Duet.Exchange.StaffRegister.DuetE, Version=4.7.7.1303, Culture=neutral, PublicKeyToken=e3978182d4695540, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLL\Bgs.Duet.Exchange.StaffRegister.DuetE.dll</HintPath>
+    </Reference>
+    <Reference Include="Bgs.Duet.Exchange.StaffRegister.IDevice, Version=4.7.7.1303, Culture=neutral, PublicKeyToken=e3978182d4695540, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLL\Bgs.Duet.Exchange.StaffRegister.IDevice.dll</HintPath>
+    </Reference>
+    <Reference Include="Bgs.Duet.Exchange.StaffRegister.IStaffCard, Version=4.7.7.1303, Culture=neutral, PublicKeyToken=e3978182d4695540, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLL\Bgs.Duet.Exchange.StaffRegister.IStaffCard.dll</HintPath>
+    </Reference>
+    <Reference Include="Bgs.Duet.Exchange.StaffRegister.IStaffRegister, Version=4.7.7.1303, Culture=neutral, PublicKeyToken=e3978182d4695540, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLL\Bgs.Duet.Exchange.StaffRegister.IStaffRegister.dll</HintPath>
+    </Reference>
+    <Reference Include="Bgs.Duet.Exchange.StaffRegister.StaffCard, Version=4.7.7.1303, Culture=neutral, PublicKeyToken=e3978182d4695540, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLL\Bgs.Duet.Exchange.StaffRegister.StaffCard.dll</HintPath>
+    </Reference>
+    <Reference Include="Bgs.Duet.Exchange.StaffRegister.StaffTransCard, Version=4.7.7.1303, Culture=neutral, PublicKeyToken=e3978182d4695540, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLL\Bgs.Duet.Exchange.StaffRegister.StaffTransCard.dll</HintPath>
+    </Reference>
+    <Reference Include="Bgs.Duet.SysErrorMsg, Version=1.0.0.0, Culture=neutral, PublicKeyToken=e3978182d4695540, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLL\Bgs.Duet.SysErrorMsg.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.BASECARDOBJECTSLib, Version=1.0.0.1, Culture=neutral, PublicKeyToken=e3978182d4695540, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>DLL\Interop.BASECARDOBJECTSLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.BASEREADERLib, Version=1.0.0.1, Culture=neutral, PublicKeyToken=e3978182d4695540, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>DLL\Interop.BASEREADERLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.BGSCRYPTLib, Version=1.0.0.1, Culture=neutral, PublicKeyToken=e3978182d4695540, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>DLL\Interop.BGSCRYPTLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.BGSMESSAGESLib, Version=1.0.0.1, Culture=neutral, PublicKeyToken=e3978182d4695540, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\dll\Interop.BGSMESSAGESLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.STAFFCARDOBJECTSLib, Version=1.0.0.1, Culture=neutral, PublicKeyToken=e3978182d4695540, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>DLL\Interop.STAFFCARDOBJECTSLib.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Xml" />
+    <Reference Include="XMLServiceClass, Version=1.0.0.0, Culture=neutral, PublicKeyToken=e3978182d4695540, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\dll\XMLServiceClass.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BusinessLogic\AccountCreate.cs" />
+    <Compile Include="BusinessLogic\BlockCardAccount.cs" />
+    <Compile Include="BusinessLogic\EMVLoadUnload.cs" />
+    <Compile Include="BusinessLogic\GetOperationStatus.cs" />
+    <Compile Include="BusinessLogic\HowAreYou.cs" />
+    <Compile Include="BusinessLogic\PrepareDuetOperation.cs" />
+    <Compile Include="Data\LogsDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LogsDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="LoggingLayer\Operation.cs" />
+    <Compile Include="LoggingLayer\OperationPersister.cs" />
+    <Compile Include="LoggingLayer\PayAgentLogger.cs" />
+    <Compile Include="TestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestForm.Designer.cs">
+      <DependentUpon>TestForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utility\Constants.cs" />
+    <Compile Include="BusinessLogic\IsOperationSuccessful.cs" />
+    <Compile Include="BusinessLogic\Operation.cs" />
+    <Compile Include="BusinessLogic\OperationPerformer.cs" />
+    <Compile Include="BusinessLogic\OperationResult.cs" />
+    <Compile Include="BusinessLogic\PerformDuetOperation.cs" />
+    <Compile Include="BusinessLogic\Request.cs" />
+    <Compile Include="CPMTcpServer.cs" />
+    <Compile Include="PayAgentService.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PayAgentService.Designer.cs">
+      <DependentUpon>PayAgentService.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="ProjectInstaller.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ProjectInstaller.Designer.cs">
+      <DependentUpon>ProjectInstaller.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Utility\HashUtility.cs" />
+    <Compile Include="Utility\IErrorReporter.cs" />
+    <Compile Include="Utility\LogAssembler.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="PayAgentService.resx">
+      <DependentUpon>PayAgentService.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProjectInstaller.resx">
+      <DependentUpon>ProjectInstaller.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Sql.Server.Express.9.2">
+      <Visible>False</Visible>
+      <ProductName>SQL Server 2005 Express Edition SP2 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Data\LogsDataSet.xsc">
+      <DependentUpon>LogsDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Data\LogsDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>LogsDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Data\LogsDataSet.xss">
+      <DependentUpon>LogsDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Data\Logs.mdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\Logs_log.LDF">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DependentUpon>Logs.mdf</DependentUpon>
+    </Content>
+    <Content Include="DLL\Bgs.Duet.dll" />
+    <Content Include="DLL\Bgs.Duet.Exchange.ApplicationServer.Common.Classify.dll" />
+    <Content Include="DLL\Bgs.Duet.Exchange.Client.Proxy.dll" />
+    <Content Include="DLL\Bgs.Duet.Exchange.Client.Proxy.StaffCard.dll" />
+    <Content Include="DLL\Bgs.Duet.Exchange.InterfaceV1.dll" />
+    <Content Include="DLL\Bgs.Duet.Exchange.Remoting.Sink.Client.dll" />
+    <Content Include="DLL\Bgs.Duet.Exchange.Remoting.Sink.dll" />
+    <Content Include="DLL\Bgs.Duet.Exchange.Remoting.Sink.Monitor.dll" />
+    <Content Include="DLL\Bgs.Duet.Exchange.Server.Common.ClientContext.dll" />
+    <Content Include="DLL\Bgs.Duet.Exchange.Server.Common.dll" />
+    <Content Include="DLL\Bgs.Duet.Exchange.Server.RemoteFactory.dll" />
+    <Content Include="DLL\Bgs.Duet.Exchange.Server.TransApp.dll" />
+    <Content Include="DLL\Bgs.Duet.Exchange.StaffRegister.DuetE.dll" />
+    <Content Include="DLL\Bgs.Duet.Exchange.StaffRegister.IDevice.dll" />
+    <Content Include="DLL\Bgs.Duet.Exchange.StaffRegister.IStaffCard.dll" />
+    <Content Include="DLL\Bgs.Duet.Exchange.StaffRegister.IStaffRegister.dll" />
+    <Content Include="DLL\Bgs.Duet.Exchange.StaffRegister.StaffCard.dll" />
+    <Content Include="DLL\Bgs.Duet.Exchange.StaffRegister.StaffTransCard.dll" />
+    <Content Include="DLL\Bgs.Duet.SysErrorMsg.dll" />
+    <Content Include="DLL\DuetMessagesDLL.dll" />
+    <Content Include="DLL\Interop.BASECARDOBJECTSLib.dll" />
+    <Content Include="DLL\Interop.BASEREADERLib.dll" />
+    <Content Include="DLL\Interop.BGSCRYPTLib.dll" />
+    <Content Include="DLL\Interop.BGSMESSAGESLib.dll" />
+    <Content Include="DLL\Interop.STAFFCARDOBJECTSLib.dll" />
+    <Content Include="DLL\XMLServiceClass.dll" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
